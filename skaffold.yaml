@@ -1,0 +1,58 @@
+apiVersion: skaffold/v2alpha3
+kind: Config
+deploy:
+  kubectl:
+    manifests:
+      - ./infra/k8s/*
+build:
+  local:
+    push: false
+  artifacts:
+    - image: calegari/auth
+      context: auth
+      docker:
+        dockerfile:
+      sync:
+        manual:
+          - src: "src/**/*.ts"
+            dest: .
+    - image: calegari/client
+      context: client
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '**/*.js'
+            dest: .
+    - image: calegari/produtos
+      context: produtos
+      docker:
+        dockerfile:
+      sync:
+        manual:
+          - src: "src/**/*.ts"
+            dest: .
+    - image: calegari/orders
+      context: orders
+      docker:
+        dockerfile:
+      sync:
+        manual:
+          - src: "src/**/*.ts"
+            dest: .    
+    - image: calegari/expiration
+      context: expiration
+      docker:
+        dockerfile:
+      sync:
+        manual:
+          - src: "src/**/*.ts"
+            dest: . 
+    - image: calegari/payments
+      context: payments
+      docker:
+        dockerfile:
+      sync:
+        manual:
+          - src: "src/**/*.ts"
+            dest: .                       

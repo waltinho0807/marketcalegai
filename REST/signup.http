@@ -1,0 +1,74 @@
+//signup
+POST https://mercado.dev/api/users/signup
+Content-Type: application/json
+
+{
+    "email": "waltinhocalegari5@hotmail.com",
+    "password": 123456
+}
+###
+//email validation
+POST https://mercado.dev/api/users/signup
+Content-Type: application/json
+
+{
+    "email": "hotmaccccil",
+    "password": 123456
+}
+
+###
+//Not found
+GET https://mercado.dev/api/users/signup/dadfdff
+
+###
+
+POST https://mercado.dev/api/users/signin
+Content-Type: application/json
+
+{
+    "email": "waltinhocalegari5@hotmail.com",
+    "password": 123456
+}
+
+###
+
+GET https://mercado.dev/api/users/currentuser
+
+
+###
+
+POST https://mercado.dev/api/produtos
+Content-Type: application/json
+
+{
+    "title": "tomate",
+    "price": 10,
+    "img": "sdffd.jpg",
+    "category": "gol"
+}
+
+###
+PUT https://mercado.dev/api/produtos/5f400c669b765400240f1f6b
+Content-Type: application/json
+
+{
+    "title": "tomate go",
+    "price": 12
+}
+
+###
+POST  https://mercado.dev/api/orders
+Content-Type: application/json
+
+{
+    "produtoId": "5f4533073292a60018e581a2"
+}
+
+###
+POST https://mercado.dev/api/payments
+Content-Type: application/json
+
+{
+    "orderId": "5f45331ff71213001e826158",
+    "token": "tok_visa"
+}
